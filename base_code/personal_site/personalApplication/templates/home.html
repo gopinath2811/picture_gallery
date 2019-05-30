@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% load staticfiles %} 
+<h2><center>WELCOME</center></h2>
+<div class="w3-content w3-display-container">
+    <img class="mySlides" src="{% static 'img/a.jpg' %}" style="width:100%">
+    <img class="mySlides" src="{% static 'img/b.jpg' %}" style="width:100%">
+    <img class="mySlides" src="{% static 'img/c.jpeg' %}" style="width:100%">
+    
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+<script>
+     var slideIndex = 1;
+     showDivs(slideIndex);
+    
+     function plusDivs(n) {
+       showDivs(slideIndex += n);
+     }
+
+     function showDivs(n) {
+       var i;
+       var x = document.getElementsByClassName("mySlides");
+       if (n > x.length) {slideIndex = 1}
+       if (n < 1) {slideIndex = x.length}
+       for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";  
+       }
+       x[slideIndex-1].style.display = "block";  
+     }
+</script>
+  
+{% endblock %}
+
+
